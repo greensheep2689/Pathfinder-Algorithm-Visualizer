@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="header">
+                <h1 id='title'>Pathfinding Algorithm Visualizer</h1>
+                <a id="speedSelector" class="header-elements">Speed</a>
+                    <input id="runSpeed" class="speedslider" type="range" min="-5" max="45" value="20" step="1">
+                <a id="algorithm" class="header-elements">Algorithms</a>
+                <div id="algolist" style="position: absolute">
+                    <select id="algoSelection">
+                        <option value="dijkstras">Dijkstras Algorithm</option>
+                        <option value="aStar">A* Algorithm</option>
+                        <option value="breadthFirstSearch">Breadth First Search</option>
+                        <option value="depthFirstSearch">Depth First Search</option>
+                    </select>
+                </div>
+                <a id="cleargridbtn">Clear Grid</a>
+                <a id="clearpathbtn">Clear Path</a>
+                <a id="generatemazebtn">Generate Maze</a>
+                <a id="runbtn" >Run</a>
+        </div>
+        <div id='gridContainer'>
+            <table id='grid'>
+            </table>
+        </div>
+        <script src="script.js" type='module'></script>
+    </body>
+</html>
