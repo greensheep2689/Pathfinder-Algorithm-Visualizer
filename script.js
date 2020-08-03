@@ -1,8 +1,21 @@
-import {createGrid, clearGrid, highlightSelectedNode, generateMaze} from './helper.js'
+import {createGrid, clearGrid, highlightSelectedNode} from './helper.js'
+
+import {generateMaze} from './mazegenerator.js'
+
+import {breadthFirstSearch} from './algorithms/breadthFirstSearch.js'
 
 let startNode;
 
 let endNode;
+
+let algoSelectionVal = algoSelection.value;
+
+let functionObj = {
+    'breadthFirstSearch': breadthFirstSearch,
+    /*'aStar': aStar,
+    'dijkstras': dijkstras,
+    'depthFirstSearch': depthFirstSearch*/
+}
 
 gridContainer.addEventListener('drag', function(event) {
     event.preventDefault();
@@ -34,7 +47,16 @@ cleargridbtn.addEventListener('click', function() {
 })
 
 generatemazebtn.addEventListener('click', function() {
-    generateMaze()
+    clearGrid();
+    generateMaze();
+})
+
+algoSelection.addEventListener('change', function() {
+    algoSelectionVal = algoSelection.value;
+})
+
+runbtn.addEventListener('click', function() {
+    functionObj[algoSelectionVal]();
 })
 
 function addStartAndEndNodes() {
