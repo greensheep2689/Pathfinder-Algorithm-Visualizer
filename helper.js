@@ -1,4 +1,4 @@
-export {createGrid, clearGrid, highlightSelectedNode}
+export {createGrid, clearGrid, highlightSelectedNode, clearPath}
 
 function createGrid() {
     for (let i = 0; i < 31; i++) {
@@ -19,8 +19,9 @@ function clearGrid() {
     allCells.map(function(x) {
         x.classList.add('unselectedCell');
         x.classList.remove('selectedCell');
-        x.classList.remove('highlightSearching');
     });
+
+    clearPath();
 }
 
 function highlightSelectedNode(event) {
@@ -35,3 +36,10 @@ function highlightSelectedNode(event) {
     }
 }
 
+function clearPath() {
+    Array.from(document.querySelectorAll('td')).map((x) => {
+        x.classList.remove('highlightSearching');
+        x.classList.remove('visitedCell');
+        x.classList.remove('shortestPathNode');
+    });
+}

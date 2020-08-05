@@ -1,8 +1,10 @@
-import {createGrid, clearGrid, highlightSelectedNode} from './helper.js'
+import {createGrid, clearGrid, highlightSelectedNode, clearPath} from './helper.js'
 
 import {generateMaze} from './mazegenerator.js'
 
 import {breadthFirstSearch} from './algorithms/breadthFirstSearch.js'
+
+import {depthFirstSearch} from './algorithms/depthFirstSearch.js'
 
 let startNode;
 
@@ -10,11 +12,13 @@ let endNode;
 
 let algoSelectionVal = algoSelection.value;
 
+let state = true;
+
 let functionObj = {
     'breadthFirstSearch': breadthFirstSearch,
     /*'aStar': aStar,
-    'dijkstras': dijkstras,
-    'depthFirstSearch': depthFirstSearch*/
+    'dijkstras': dijkstras,*/
+    'depthFirstSearch': depthFirstSearch
 }
 
 gridContainer.addEventListener('drag', function(event) {
@@ -26,6 +30,8 @@ gridContainer.addEventListener('dragstart', function(event) {
 })
 
 gridContainer.addEventListener('mousedown', function(event) {
+    if (!state) return;
+    clearPath();
     if (event.target.classList.contains('startNode')) {
         gridContainer.addEventListener('mouseover', moveStartNode);
     } else if (event.target.classList.contains('endNode')) {
@@ -43,20 +49,32 @@ gridContainer.addEventListener('mouseup', function() {
 })
 
 cleargridbtn.addEventListener('click', function() {
+    if (!state) return;
     clearGrid();
 })
 
+clearpathbtn.addEventListener('click', function() {
+    if (!state) return;
+    clearPath();
+})
+
 generatemazebtn.addEventListener('click', function() {
+    if (!state) return;
     clearGrid();
     generateMaze();
 })
 
 algoSelection.addEventListener('change', function() {
+    clearPath();
     algoSelectionVal = algoSelection.value;
 })
 
 runbtn.addEventListener('click', function() {
-    functionObj[algoSelectionVal]();
+    if (!state) return;
+    state = false;
+    let delay = functionObj[algoSelectionVal]();
+
+    setTimeout(() => state = true, delay);
 })
 
 function addStartAndEndNodes() {

@@ -220,3 +220,12 @@ body {
 .curNode {
     background-color: magenta;
 }
+
+.shortestPathNode {
+    background-color: cyan;
+    border: 1px solid cyan;
+}
+
+.visitedCell {
+    
+}
