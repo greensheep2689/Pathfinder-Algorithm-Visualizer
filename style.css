@@ -222,8 +222,8 @@ body {
 }
 
 .shortestPathNode {
-    background-color: cyan;
-    border: 1px solid cyan;
+    background-color: #E4A0F7;
+    border: 1px solid #b66DCD;
 }
 
 .visitedCell {

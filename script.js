@@ -14,6 +14,8 @@ let algoSelectionVal = algoSelection.value;
 
 let state = true;
 
+let speed = 6 - runSpeed.value;
+
 let functionObj = {
     'breadthFirstSearch': breadthFirstSearch,
     /*'aStar': aStar,
@@ -48,6 +50,8 @@ gridContainer.addEventListener('mouseup', function() {
     gridContainer.removeEventListener('mouseover', highlightSelectedNode);
 })
 
+runSpeed.addEventListener('change', () => speed = (6 - runSpeed.value));
+
 cleargridbtn.addEventListener('click', function() {
     if (!state) return;
     clearGrid();
@@ -65,14 +69,17 @@ generatemazebtn.addEventListener('click', function() {
 })
 
 algoSelection.addEventListener('change', function() {
-    clearPath();
     algoSelectionVal = algoSelection.value;
+
+    if (!state) return;
+
+    clearPath();
 })
 
 runbtn.addEventListener('click', function() {
     if (!state) return;
     state = false;
-    let delay = functionObj[algoSelectionVal]();
+    let delay = functionObj[algoSelectionVal](speed);
 
     setTimeout(() => state = true, delay);
 })
