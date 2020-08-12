@@ -62,9 +62,9 @@ function positionAnnotation(event, algoSelectionVal) {
         arrowdown.style.top = event.target.getBoundingClientRect().top - Math.abs(arrowdown.offsetHeight- event.target.offsetHeight)/2 - 8 + 'px';
     } else if (event.target.closest('#gridContainer')) {
         if (algoSelectionVal == 'breadthFirstSearch' || algoSelectionVal =='depthFirstSearch') {
-            insertHTMLText('Draw on me by dragging on the cells!');
+            insertHTMLText('Draw obstacles by dragging on the cells!');
         } else {
-            insertHTMLText('Draw on me by dragging on the cells \& double-click to add zero-resistance cells!');
+            insertHTMLText('Draw obstacles by dragging on the cells \& double-click to add zero-resistance cells!');
         }
         
         annotationBubble.style.display = 'block';
