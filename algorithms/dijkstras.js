@@ -37,11 +37,10 @@ function dijkstrasUtil(speed) {
 
     let speedTotal = 0;
 
-    queue.push([0, [null, start], 0]);
+    queue.push([0, [null, start]]);
 
     while (queue.length > 0) {
-        queue.sort((a, b) => a[2] - b[2])
-        queue.sort((a, b) => a[0] - b[0])
+        queue.sort((a, b) => a[0] - b[0]);
         let path = queue.shift()[1];
         let pos = path[path.length-1]; // ... and then the last position from it
         let direction = [
@@ -81,7 +80,7 @@ function dijkstrasUtil(speed) {
             
             matrix[direction[i][0]][direction[i][1]].classList.add('visitedCell');
             
-            queue.push([weight, path.concat([direction[i]]), manhattanDist(locateEndNode(matrix), direction[i])]); 
+            queue.push([weight, path.concat([direction[i]])]); 
         }
         if (matrix[pos[0]][pos[1]].classList.contains('startNode')) continue;
 
