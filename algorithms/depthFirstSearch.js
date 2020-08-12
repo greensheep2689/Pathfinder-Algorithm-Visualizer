@@ -19,7 +19,6 @@ function depthFirstSearch(speed) {
             speedTotal += (+speed + 3);
         }
     }
-    console.log(speedTotal)
     return speedTotal
 }
 

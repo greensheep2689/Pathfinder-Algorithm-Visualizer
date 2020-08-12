@@ -17,9 +17,9 @@
             <div id="algolist" style="position: absolute">
                 <select id="algoSelection">
                     <option value="dijkstras">Dijkstra's Algorithm</option>
-                    <option value="aStar">A* Algorithm</option>
+                    <option value="aStar" selected>A* Algorithm</option>
                     <option value="breadthFirstSearch">Breadth First Search</option>
-                    <option value="depthFirstSearch" selected>Depth First Search</option>
+                    <option value="depthFirstSearch">Depth First Search</option>
                 </select>
             </div>
             <a id="cleargridbtn">Clear Grid</a>
@@ -31,6 +31,9 @@
             <table id='grid'>
             </table>
         </div>
+        <div id="annotationBubble"></div>
+        <div id="arrowdown"></div>
+        <div id='arrowup'></div>
         <script src="script.js" type='module'></script>
     </body>
 </html>
