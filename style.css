@@ -176,6 +176,7 @@ body {
 
 #gridContainer {
     position: absolute;
+    width: 1408px;
     top: 100px;
     left: 15px;
 }

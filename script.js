@@ -27,11 +27,11 @@ let functionObj = {
     'depthFirstSearch': depthFirstSearch
 }
 
-gridContainer.addEventListener('drag', function(event) {
+window.addEventListener('drag', function(event) {
     event.preventDefault();
 })
 
-gridContainer.addEventListener('dragstart', function(event) {
+window.addEventListener('dragstart', function(event) {
     event.preventDefault();
 })
 
@@ -134,6 +134,7 @@ function addStartAndEndNodes() {
 }
 
 function moveStartNode(event) {
+    if (event.target.tagName.toLowerCase() != 'td') return;
     startNode.classList.remove('startNode');
     event.target.classList.add('unselectedCell');
     event.target.classList.add('startNode');
@@ -141,6 +142,7 @@ function moveStartNode(event) {
 }
 
 function moveEndNode(event) {
+    if (event.target.tagName.toLowerCase() != 'td') return;
     endNode.classList.remove('endNode');
     event.target.classList.add('unselectedCell');
     event.target.classList.add('endNode');
